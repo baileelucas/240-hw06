@@ -72,8 +72,7 @@ void Arc::setY(int value)
  **/
 bool Arc::equals (Arc that)
 {
-  if((this->x == that.getX()) &&
-     (this->y == that.getY()))
+  if(this->y == that.getY())
   {
     return true;
   }
