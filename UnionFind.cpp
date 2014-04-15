@@ -98,8 +98,10 @@ void UnionFind::addLink(int a, int b)
       cout << "rootOflarger: " << rootOfLarger.toString() << endl;
   
   //cycle found so print cycle
+
   if(rootOfSmaller.equals(rootOfLarger))
   {
+      cout << "CYCLE FOUND" << endl;
     Arc tempArc;
     tempArc.setX(larger);
     tempArc.setY(smaller);
@@ -157,14 +159,15 @@ Arc UnionFind::find(int zz, vector<Arc>& ArcPath)
   
   root = Arcs[zz];
   ArcPath.push_back(root);
-  if(root.getX() != root.getY())
-  {
+//  if(root.getX() != root.getY())
+//  {
     while(root.getX() != root.getY())
     {
+      cout << "FIND"<< endl;
       root = Arcs[root.getY()];
       ArcPath.push_back(root);
     }
-  }
+  // }
   
   return root;
 }
@@ -184,8 +187,8 @@ Arc UnionFind::find(int zz, vector<Arc>& ArcPath)
  * 'printCycle' function.
  *
  * Parameters:
- *   which -- an integer
- *   whatever -- an integer
+ *   smaller -- an integer
+ *   larger -- an integer
  *
  * Returns:
  *   s
@@ -215,10 +218,13 @@ string UnionFind::printCycle(int smaller, int larger)
   tempArc.setX(larger);
   tempArc.setY(smaller);
   
-  Utils::logStream << TAG << "PATH ONE " << tempArc.toString() << this->toStringPath(pathSmaller, *itSmaller) << endl;
+  Utils::logStream << TAG << "PATH ONE " << tempArc.toString()
+                   << this->toStringPath(pathSmaller, topOfSmaller) << endl;
   Utils::logStream.flush();
-  Utils::logStream << TAG << "PATH TWO " << this->toStringPath(pathLarger, *itLarger) << endl << endl;
+  Utils::logStream << TAG << "PATH TWO "
+                   << this->toStringPath(pathLarger, topOfLarger) << endl << endl;
   Utils::logStream.flush();
+  s += "PATH ONE " + tempArc.toString() + this->toStringPath(pathSmaller, topOfSmaller);
   return s;
 }
 /****************************************************************
