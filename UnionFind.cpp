@@ -254,7 +254,7 @@ string UnionFind::toString()
 string UnionFind::toStringPath(vector<Arc> path, Arc last)
 {
   string s = "";
-  for(vector<Arc>::iterator it = path.end(); it != path.begin(); --it)
+  for(vector<Arc>::iterator it = path.begin(); it != path.end(); ++it)
   {
     s += (*it).toString();
     if( (*it).equals(last)) break;
