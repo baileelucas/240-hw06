@@ -57,7 +57,8 @@ void UnionFind::addLink(int a, int b)
     larger = a;
   }
   
-  cout << "Add link (" << smaller  << "->" << larger << ")" << endl;
+  cout << "\nCurrent link (   " << larger  
+        << " ->   " << smaller << ")" << endl;
   
   if(Arcs[smaller].getX() == DUMMYX)
   {
@@ -87,12 +88,12 @@ void UnionFind::addLink(int a, int b)
   }
   //creates path between two Arcs
   else
-  {
+  { 
     Arc tempArc;
     tempArc.setX(larger);
     tempArc.setY(smaller);
-    cout << tempArc.toString() << endl;
-    Utils::logStream.flush();
+    cout << "No Cycles Add arc (  " 
+         << larger << " ->   " << smaller << ")" << endl; 
     Arcs[larger] = tempArc;
     Arcs[larger].setY(smaller);
   }
@@ -135,19 +136,16 @@ Arc UnionFind::find(int zz, vector<Arc>& ArcPath)
   root = Arcs[zz];
   ArcPath.push_back(root);
  
+  if (root.getX() != root.getY())
+  {
+    while(root.getX() != root.getY())
+    {
+      root = Arcs[root.getY()];
+      ArcPath.push_back(root);
+    }
+  } 
   return root;
 }
-/****************************************************************
- * 'buildTrees' function
- *
- *
- * Returns:
- *   
- **/
-//Arc UnionFind::buildTrees()
-//{
-// return "zork";
-//}
 
 /****************************************************************
  * 'printCycle' function.
@@ -175,9 +173,7 @@ string UnionFind::printCycle(int smaller, int larger)
   tempArc.setY(smaller);
   
   cout << TAG << "PATH ONE " << tempArc.toString() << this->toStringPath(pathSmaller, *itSmaller) << endl;
-  Utils::logStream.flush();
-  cout << TAG << "PATH TWO " << this->toStringPath(pathLarger, *itLarger) << endl << endl;
-  Utils::logStream.flush();
+  cout << TAG << "PATH TWO " << this->toStringPath(pathLarger, *itLarger)  << endl;
   return s;
 }
 /****************************************************************
