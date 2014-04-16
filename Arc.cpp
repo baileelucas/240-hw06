@@ -3,6 +3,7 @@
  *
  * Author/copyright:  Duncan Buell. All rights reserved.
  * Used with permission by: Alison Bailee Lucas.
+ * Used with permission by: Andrew Campbell
  * Date: 12 April 2014
  *
  **/
