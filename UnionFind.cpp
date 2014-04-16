@@ -57,15 +57,15 @@ void UnionFind::addLink(int a, int b)
     larger = a;
   }
   
-  cout << "Add link (" << smaller "->" << larger << ")" << endl;
+  cout << "Add link (" << smaller  << "->" << larger << ")" << endl;
   
-  if(smallerArc.getX() == DUMMYX)
+  if(Arcs[smaller].getX() == DUMMYX)
   {
     Arcs[smaller].setX(smaller);
     Arcs[smaller].setY(smaller);
   }
   
-  if(largerArc.getX() == DUMMYX)
+  if(Arcs[larger].getX() == DUMMYX)
   {
     Arcs[larger].setX(larger);
     Arcs[larger].setY(larger);
@@ -92,7 +92,7 @@ void UnionFind::addLink(int a, int b)
     tempArc.setX(larger);
     tempArc.setY(smaller);
     cout << tempArc.toString() << endl;
-    Utils::logStream.flush();i
+    Utils::logStream.flush();
     Arcs[larger] = tempArc;
     Arcs[larger].setY(smaller);
   }

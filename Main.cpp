@@ -39,25 +39,6 @@ int main(int argc, char *argv[])
   Utils::logStream << TAG << "outfile '" << outFileName << "'" << endl;
   Utils::logStream << TAG << "logfile '" << logFileName << "'" << endl;
   
-  /*
-   srand(1);
-   int count = 20;
-   for(int i = 0; i < 100; ++i)
-   {
-   int a = rand() % count;
-   int b = rand() % count;
-   while(a == b)
-   {
-   b = rand() % count;
-   }
-   
-   Utils::logStream << Utils::Format(a, 3) << " " << Utils::Format(b, 3) << endl;
-   Utils::logStream.flush();
-   
-   }
-   exit(1);
-   */
-  
   inStream.openFile(inFileName);
   int numberOfArcs = inStream.nextInt();
   
