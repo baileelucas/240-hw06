@@ -1,13 +1,18 @@
 /****************************************************************
- * Header file for Homework 6, the union-find algorithm.
+ * Header file for the Arc class.
  *
  * Author/copyright:  Duncan Buell
- * Used with permission by: Alison Bailee Lucas.
- * Date: 12 April 2014
+ *
+ * Author/copyright:  Duncan Buell
+ * Used and modifed, with permission, by: 
+ * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
+ * Jacob Leidel, and Timothy Bradley
+ *
+ * Date: 16 April 2014
  *
  **/
-#ifndef X_H
-#define X_H
+#ifndef Arc_H
+#define Arc_H
 
 #include "../../Utilities/Utils.h"
 #include "../../Utilities/Scanner.h"
@@ -27,8 +32,7 @@ public:
   void setY(int value);
   
   bool equals(Arc that);
-  bool z();
-  
+    
   string toString();
   
 private:
@@ -37,4 +41,4 @@ private:
   
 };
 
-#endif // X_H
+#endif // Arc_H

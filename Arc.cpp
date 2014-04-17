@@ -1,15 +1,20 @@
 /****************************************************************
- * Class for doing something not yet known yet.
+ * Class to handle an instance of an arc. Will contain the 
+ * accesseros, mutators, data, and methods needed to use
+ * and manipulate a single arc.
  *
  * Author/copyright:  Duncan Buell. All rights reserved.
- * Used with permission by: Alison Bailee Lucas.
- * Used with permission by: Andrew Campbell
- * Date: 12 April 2014
+ * 
+ * Used and modifed, with permission, by: 
+ * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
+ * Jacob Leidel, and Timothy Bradley
+ *
+ * Date: 16 April 2014
  *
  **/
 #include "Arc.h"
 
-static const string TAG = "ZORK: ";
+static const string TAG = "Arc: ";
 /****************************************************************
  * Constructor.
  *
@@ -31,7 +36,8 @@ Arc::~Arc()
  *
 **/
 /****************************************************************
- * 'getX' function.
+ * Returns the X value of an arc. Arcs are referred to in the
+ * form (X , Y)
  *
 **/
 int Arc::getX()
@@ -39,7 +45,8 @@ int Arc::getX()
   return this->x;
 }
 /****************************************************************
- * 'getY' function.
+ * Returns the Y  value of an arc. Arcs are referred to in the
+ * form (X , Y)
  *
 **/
 int Arc::getY()
@@ -47,15 +54,15 @@ int Arc::getY()
   return this->y;
 }
 /****************************************************************
- * 'setX' function.
+ * Method to set the X value of an arc. 
  *
-**/
+ */
 void Arc::setX(int value)
 {
   this->x = value;
 }
 /****************************************************************
- * 'setY' function.
+ * Method to set the Y value of an arc. 
  *
  **/
 void Arc::setY(int value)
@@ -63,7 +70,8 @@ void Arc::setY(int value)
   this->y = value;
 }
 /****************************************************************
- * 'equals' function.
+ * Method to determine if two Arcs share the same Y cooridinate.
+ * This would mean they are connected to the same root. 
  *
  * Parameters:
  *   that -- an instance of Arc
@@ -80,22 +88,12 @@ bool Arc::equals (Arc that)
   
   return false;
 }
-/****************************************************************
- * 'z' function. Checks to see if Arc points to self?
- *
- * Returns:
- *   this->x = this->y
- **/
 
-bool Arc::z()
-{
-  return (this->x = this->y);
-}
 /****************************************************************
- * 'toString' function.
+ * Normal 'toString' to represent the Data.
  *
  * Parameters:
- *   that -- an instance of Arc
+ *   None
  *
  * Returns:
  *   s

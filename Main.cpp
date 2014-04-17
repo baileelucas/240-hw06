@@ -2,9 +2,12 @@
  * Main program for doing union-find algorithm.
  *
  * Author/copyright:  Duncan Buell. All rights reserved.
- * Used with permission by: Alison Bailee Lucas.
- * Date: 12 April 2014
+ * 
+ * Used and modifed, with permission, by: 
+ * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
+ * Jacob Leidel, and Timothy Bradley
  *
+ *  Date: 16 April 2014
  **/
 
 #include "Main.h"
@@ -50,14 +53,6 @@ int main(int argc, char *argv[])
     outStream << "(" << a << ", ";
     int b = inStream.nextInt();
     outStream << b << ")" << endl;
-    //    cout << "ZORK " << a << " " << b << endl;
-//    int rootA = unionFind.find(a);
-//    int rootB = unionFind.find(b);
-//    
-//    if (rootA != rootB)
-//    {
-//      unionFind.addLink(a, b);
-//    }
     
     if(a < b)
     {
@@ -73,12 +68,8 @@ int main(int argc, char *argv[])
     }
   }
   
-    Utils::logStream << unionFind.toString() << endl;
-    Utils::logStream.flush();
-  
-    //unionFind.buildTrees();
-    Utils::logStream << unionFind.toString() << endl;
-    Utils::logStream.flush();
+  Utils::logStream << "Final Tree:\n" << unionFind.toString() << endl;
+  Utils::logStream.flush();
   
   timeCallOutput = Utils::timecall("ending");
   Utils::logStream << timeCallOutput;
