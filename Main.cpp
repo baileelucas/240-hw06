@@ -7,7 +7,7 @@
  * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
  * Jacob Leidel, and Timothy Bradley
  *
- *  Date: 16 April 2014
+ *  Date: 18 April 2014
  **/
 
 #include "Main.h"
@@ -50,24 +50,11 @@ int main(int argc, char *argv[])
   for(int arc = 0; arc < numberOfArcs; ++arc)
   {
     int a = inStream.nextInt();
-    outStream << "(" << a << ", ";
     int b = inStream.nextInt();
-    outStream << b << ")" << endl;
-    
-    if(a < b)
-    {
-      unionFind.addLink(a, b);
-        outStream << a << " < " << b << endl;
-        outStream << "add link: " << a << " to " << b << endl;
-    }
-    else
-    {
-      unionFind.addLink(b, a);
-      outStream << a << " > " << b << endl;
-      outStream << "add link: " << b << " to " << a << endl;
-    }
+    unionFind.addLink(a, b, outStream);
   }
-  
+ 
+  outStream << "Final Tree:\n" << unionFind.toString() << endl;
   Utils::logStream << "Final Tree:\n" << unionFind.toString() << endl;
   Utils::logStream.flush();
   

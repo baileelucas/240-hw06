@@ -7,7 +7,7 @@
  * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
  * Jacob Leidel, and Timothy Bradley
  *
- * Date: 16 April 2014
+ * Date: 18 April 2014
  *
  **/
 #ifndef UNIONFIND_H
@@ -27,11 +27,11 @@ public:
   UnionFind();
   virtual ~UnionFind();
   
-  void addLink(int a, int b);
+  void addLink(int a, int b, ofstream& outStream);
   Arc find(int thatX);
   Arc find(int thatX, vector<Arc>& ArcPath);
   string toString();
-  
+  friend ostream& operator <<(ostream& outStream, const Arc& arc); 
 private:
   map<int, Arc> Arcs;
   

@@ -11,7 +11,7 @@
  * Alison Bailee Lucas, Andrew Campbell, Rohit Gupta,
  * Jacob Leidel, and Timothy Bradley
  *
- * Date: 16 April 2014
+ * Date: 18 April 2014
  *
  **/
 #include "UnionFind.h"
@@ -35,7 +35,8 @@ UnionFind::~UnionFind()
 /****************************************************************
  * General Functions.
  **/
-
+//void UnionFind::addLink(int a, int b, ofstream& outStream){
+//}
 /****************************************************************
  * In addLink two numbers are passed in to represent the two nodes 
  * of an arc. First, we use an if/else to determine which value is
@@ -54,7 +55,7 @@ UnionFind::~UnionFind()
  * Returns:
  *   none
  **/
-void UnionFind::addLink(int a, int b)
+void UnionFind::addLink(int a, int b, ofstream& outStream)
 {
   int larger;
   int smaller;
@@ -99,7 +100,8 @@ void UnionFind::addLink(int a, int b)
     Arc tempArc;
     tempArc.setX(larger);
     tempArc.setY(smaller);
-    Utils::logStream  << this->printCycle(smaller, larger) << endl;
+    outStream << TAG << "Found cycle for arc " << tempArc.toString ()<< endl;
+    outStream  << this->printCycle(smaller, larger) << "\n\n";
     Utils::logStream.flush();
   }
 
@@ -193,6 +195,11 @@ string UnionFind::printCycle(int smaller, int larger)
   
   tempArc.setX(larger);
   tempArc.setY(smaller);
+  
+  
+  s += TAG + "PATH ONE " + tempArc.toString()
+           + this->toStringPath(pathSmaller, rootOfSmaller) + "\n";
+  s += TAG + "PATH TWO " + this->toStringPath(pathLarger, rootOfLarger);
   
   Utils::logStream << TAG << "PATH ONE " << tempArc.toString() 
                    << this->toStringPath(pathSmaller, rootOfSmaller) << endl;
